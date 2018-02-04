@@ -15,7 +15,7 @@
 // Structs
 typedef struct {
     pthread_t * tids;               // Number of abailable threads.
-    void (*function)(void *);       // Function pointer to the function that will perform the task.
+    functionPtr function;           // Function pointer to the function that will perform the task.
     void *argument;                 // Argument to be passed to the function.
 } threadpool_task_t;
 
