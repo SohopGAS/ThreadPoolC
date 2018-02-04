@@ -30,7 +30,6 @@ pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 
 // Prototypes
 //void *threadpool_thread(void *threadpool);
-typedef void*(*function)(void*);
 
 // Functions
 void* threadRun(void* arg)
