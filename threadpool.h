@@ -18,6 +18,7 @@ extern "C" {
     #define MAX_THREADS 5
     #define MAX_QUEUE 101
     
+    typedef void*(*functionPtr)(void*);
     typedef struct threadpool_t threadpool_t;
     
     // Enums
