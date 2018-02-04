@@ -101,7 +101,7 @@ int main(int argc, const char * argv[]) {
     assert((pool = threadpool_create(THREAD, QUEUE, 0)) != NULL);
     fprintf(stderr, "Pool started with %llu threads and queue size of %llu\n", THREAD, QUEUE);
     
-    while (threadpool_add(pool, MontePI, &I) == 0) {
+    while (threadpool_add(pool, &(MontePI), &I) == 0) {
         pthread_mutex_lock(&lock);
         done++;
         pthread_mutex_unlock(&lock);
