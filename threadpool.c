@@ -16,6 +16,7 @@
 typedef struct {
     pthread_t * tids;               // Number of abailable threads.
     void (*function)(void *);       // Function pointer to the function that will perform the task.
+//    functionPtr function;           // Function pointer to the function that will perform the task.
     void *argument;                 // Argument to be passed to the function.
 } threadpool_task_t;
 
@@ -54,8 +55,7 @@ threadpool_t *threadpool_create(unsigned long long thread_count, unsigned long l
     
     /* Allocate thread and task queue */
     pool->threads = (pthread_t *)malloc(sizeof(pthread_t) * thread_count);
-    pool->queue = (threadpool_task_t *)malloc
-    (sizeof(threadpool_task_t) * queue_size);
+    pool->queue = (threadpool_task_t *)malloc(sizeof(threadpool_task_t) * queue_size);
     
     /* Initialize mutex and conditional variable first */
     if((pthread_mutex_init(&(pool->lock), NULL) != 0) ||
