@@ -16,8 +16,9 @@ extern "C" {
     #endif
     /* =================================== API ======================================= */
     #define MAX_THREADS 5
-    #define MAX_QUEUE 101
-    
+    #define MAX_QUEUE 100
+
+    typedef void*(*functionPtr)(void*);
     typedef struct threadpool_t threadpool_t;
     
     // Enums
@@ -30,7 +31,6 @@ extern "C" {
     } threadpool_error_t;
     
     // Prototypes
-
     typedef struct threadpool_t* pool;
     threadpool_t *threadpool_create(unsigned long long thread_count, unsigned long long queue_size, int flags);
     int threadpool_add(threadpool_t * pool, void *(function)(void *), void * argument);
