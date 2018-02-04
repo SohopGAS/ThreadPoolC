@@ -86,7 +86,7 @@ err:
 
 }
 
-int threadpool_add(threadpool_t * pool, void* (function)(void *), void * argument) {
+int threadpool_add(threadpool_t * pool,functionPtr, void * argument) {
     int err = 0;
     int next;
 //    (void) flags;
